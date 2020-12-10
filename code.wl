@@ -7,7 +7,7 @@ Clear[y1, y2, yg, yh, yp, yp1, yp2, u, v, m1, m2, roots]
 
 "Ecuación Diferencial Homógenea -- INICIO\n"
 
-"Ecuación Diferencial: y''-4y+3y=0"
+"Ecuación Diferencial: y''-4y'+3y=0"
 "Resolver internamente la equación en su estado a*m^2+b*m+c=0"
 roots=Solve[m^2-4m+3==0,m]
 {m1, m2} = roots // Values // Flatten
@@ -36,16 +36,15 @@ yh[x]=c[1]y1[x]+c[2]y2[x]
 "Wronskiano [W(x,y)]"
 wronskian=Det[{{y1[x],y2[x]},{y1'[x], y2'[x]}}]
 
-
 "\nValores de U"
 "U'"
-u = -{y2[x]*f[x]}/wronskian
+u = -{y2[x]*R[x]}/wronskian
 "U:"
 u=Integrate[u,x]
 
 "\nValores de V"
 "V'"
-v={y1[x]*f[x]}/wronskian
+v={y1[x]*R[x]}/wronskian
 "V"
 v=Integrate[v,x]
 
